@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    .mybackground {
+        background: url('/static/images/cycle.jpg') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    .myth {
+        width: 20%;
+        padding: 10px 15px;
+        color: #FFFFFF;
+        text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
+    }
+    .mytd{
+        border-bottom: 1px solid grey;
+        padding: 10px 15px;
+
+    }
+    .mytd:first-child {
+        width: 30%;
+        border-bottom: 1px solid grey;
+    }
+    .mycaption {
+        caption-side: bottom;
+        text-align: right;
+        padding: 10px 0;
+        font-size: 14px;
+    }
+
+</style>
+
+<body style="width: 100%;height: 100%;" class="mybackground">
+    <nav class="navbar navbar-light navbar-expand bg-light navigation-clean">
+        <div class="container">
+            <a class="navbar-brand" href="/">ECG Project</a>
+            <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"></button>
+{#            <div class="collapse navbar-collapse" id="navcol-1">#}
+{#                <a class="btn btn-primary ml-auto" role="button" href="#" style="margin: 8px;">Sign In</a>#}
+{#                <button class="btn btn-primary" type="button">Sign Up</button>#}
+{#            </div>#}
+        </div>
+    </nav>
+    <header class="masthead text-white text-center " style="background: none">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 mx-auto">
+                    <h1 class="mb-5" style="height: 100px;">Твои пульсовые зоны для бега</h1>
+                </div>
+            </div>
+            <table class="table-custom-primary" style="border-collapse: collapse;border: 3px solid grey;width: 100%;">
+                <tr>
+                    <th class="myth">Зоны интенсивности</th>
+                    <th class="myth">Название зоны</th>
+                    <th class="myth">ЧСС</th>
+                    <th class="myth">Отношение к ПАНО</th>
+                </tr>
+                <tr>
+                    <th class="myth">I</th>
+                    <th class="myth">Восстановление</th>
+                    <th class="myth"> <{{ "%.1f"|format(results * 0.85) }}</th>
+                    <th class="myth">Ниже ПАНО</th>
+                </tr>
+                <tr>
+                    <th class="myth">II</th>
+                    <th class="myth">Аэробная</th>
+                    <th class="myth">
+                        {{ "%.1f"|format(results * 0.85) }} - {{ "%.1f"|format(results * 0.89) }}
+                    </th>
+                    <th class="myth">Ниже ПАНО</th>
+                </tr>
+                <tr>
+                    <th class="myth">III</th>
+                    <th class="myth">Темп</th>
+                    <th class="myth">
+                        {{ "%.1f"|format(results * 0.9) }} - {{ "%.1f"|format(results * 0.94) }}
+                    </th>
+                    <th class="myth">Ниже ПАНО</th>
+                </tr>
+                <tr>
+                    <th class="myth">IV</th>
+                    <th class="myth">Порог интенсивности</th>
+                    <th class="myth">
+                        {{ "%.1f"|format(results * 0.95) }} - {{ "%.1f"|format(results * 0.99) }}
+                    </th>
+                    <th class="myth">На ПАНО</th>
+                </tr>
+                <tr>
+                    <th class="myth">Va</th>
+                    <th class="myth">Аэробная нагрузка</th>
+                    <th class="myth">
+                        {{ "%.1f"|format(results * 1) }} - {{ "%.1f"|format(results * 1.02) }}
+                    </th>
+                    <th class="myth">Выше ПАНО</th>
+                </tr>
+                <tr>
+                    <th class="myth">Vb</th>
+                    <th class="myth">Аэробная выносливость</th>
+                    <th class="myth">
+                        {{ "%.1f"|format(results * 1.03) }} - {{ "%.1f"|format(results * 1.06) }}
+                    </th>
+                    <th class="myth">Выше ПАНО</th>
+                </tr>
+                <tr>
+                    <th class="myth">Vc</th>
+                    <th class="myth">Мощность</th>
+                    <th class="myth">>{{ "%.1f"|format(results * 1.07) }}
+                    </th>
+                    <th class="myth">Выше ПАНО</th>
+                </tr>
+
+
+            </table>
+
+        </div>
+        <br>
+        <br>
+        <section class="showcase">
+        <div class="container-fluid p-0">
+{#            <div class="container">#}
+                <div class="col-xl-9 mx-auto">
+                <p>1. Оздоровительная зона очень низкой интенсивности</p>
+                    <p>Здесь происходит улучшение общей физической выносливости. Тренировка в этой зоне улучшает общую физическую подготовку, облегчает восстановление после сложных и длительных тренировок и подготавливает бегунов к тренировкам с пульсом высоких значений. Тренировки в этой зоне наиболее комфортны, легки и доступны даже начинающим. Эта зона наилучшим образом подходит для тех, кто либо только начал тренироваться, кто обладает большим излишним весом, либо имеет низкий общий уровень физической подготовленности – базы.
+                </p>
+                <p>2. Фитнесс-зона</p>
+                    <p>Тренировки в этой зоне также способствуют повышению общей выносливости. При занятиях в этой зоне начинается подключение жиров, как источников энергии, повышается качество мышечных волокон, начинает увеличиваться плотность сети капилляров, через которые доставляется к мышцам кислород. Тренировка во второй зоне является неотъемлемой частью программы занятий каждого бегуна, который хочет снизить вес. При тренировке в этой зоне увеличивается общее количество сожженных калорий по сравнению с предыдущей зоной. Существенно улучшается состояние сердечно-сосудистой и дыхательной системы.
+                </p>3. Аэробная зона</p>
+                    <p>Самая эффективная зона для тренировок на выносливость. Данный вид бега тренирует аэробные возможности нашего организма, т.е. способность усваивать кислород и передавать его максимально эффективно мышцам. Тренировки в этой зоне стимулируют развитие большой сети мелких капилляров. Возрастает число, эластичность и диаметр кровеносных сосудов, увеличивается объем легких, улучшается функциональное состояние дыхательной системы, сердце становится сильнее. Тренировки в этой зоне повышают эффективность кровообращения в сердце и скелетных мышцах. При тренировках в этой пульсовой зоне молочная кислота начинает поступать в кровоток.
+                </p>
+                <p>4. Анаэробная зона</p>
+                    <p>Тренировки в этой зоне развивают максимальную результативность и улучшают скоростную выносливость, т.е. способность бежать быстро и долго. Когда пульс достигает 90% от МЧСС, кислорода, который переносится кровью, начинает не хватать для окислительных реакций, поэтому клетки переходят в бескислородный анаэробный режим. Жиры в этой зоне практически не сжигаются, и для получения энергии используются запасенные организмом углеводы.
+                </p>
+                    <p>5. Зона максимальных усилий</p>
+                    <p>Тренировки в этой зоне развивают максимальную результативность. Организм приучается работать на пределе своих возможностей, расходуя все имеющиеся энергетические запасы, система дыхания и сердечно-сосудистая система работают с максимально возможной эффективностью, на пределе своих возможностей. Молочная кислота будет интенсивно накапливаться в крови, и уже через несколько минут вы не сможете продолжать занятие, по причине тотальной усталости. Тренировки в этой зоне характерны для профессиональных спортсменов в предсоревновательный период. Для людей, которые хотят похудеть или просто улучшить своё здоровье, нахождение в «красной» зоне крайне не приветствуется, ни в соревновательный, ни в тренировочный период. Если вы загнали себя в эту зону, то наши рекомендации – выходите из нее, как можно быстрее.
+                </p>
+            </div>
+        </div>
+            <br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br>
+    </section>
+    </header>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
